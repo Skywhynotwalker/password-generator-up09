@@ -1,0 +1,14 @@
+{
+  "name": "password-generator-up09",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Учебный генератор паролей на HTML, CSS и JavaScript",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "vite": "^7.2.2"
+  }
+}

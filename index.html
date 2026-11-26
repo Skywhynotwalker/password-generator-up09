@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Генератор паролей с настройкой длины, наборов символов, оценкой надёжности и локальной историей.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <title>Генератор паролей</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <div>
+        <p class="practice-label">Учебная практика УП.09</p>
+        <h1>Генератор паролей</h1>
+        <p class="header-description">Настройте состав пароля и получите случайную комбинацию. История сохраняется только на этом устройстве.</p>
+      </div>
+      <span class="local-badge">Без сервера и регистрации</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="workspace">
+      <section class="panel settings-panel" aria-labelledby="settings-title">
+        <h2 id="settings-title">Параметры</h2>
+        <div class="length-heading">
+          <label for="length">Длина пароля</label>
+          <output id="length-value" for="length">16</output>
+        </div>
+        <input id="length" class="length-slider" type="range" min="6" max="30" value="16">
+        <div class="range-labels" aria-hidden="true"><span>6</span><span>30</span></div>
+
+        <fieldset class="character-options">
+          <legend>Наборы символов</legend>
+          <label class="option-row">
+            <input id="lowercase" type="checkbox" checked>
+            <span><strong>Строчные буквы</strong><small>a b c … z</small></span>
+          </label>
+          <label class="option-row">
+            <input id="uppercase" type="checkbox" checked>
+            <span><strong>Заглавные буквы</strong><small>A B C … Z</small></span>
+          </label>
+          <label class="option-row">
+            <input id="numbers" type="checkbox" checked>
+            <span><strong>Цифры</strong><small>0 1 2 … 9</small></span>
+          </label>
+          <label class="option-row">
+            <input id="special" type="checkbox" checked>
+            <span><strong>Спецсимволы</strong><small>! @ # $ % &amp; …</small></span>
+          </label>
+        </fieldset>
+        <button id="generate" class="button primary-button" type="button">Сгенерировать пароль</button>
+        <p id="settings-message" class="message" aria-live="polite"></p>
+      </section>
+
+      <section class="panel result-panel" aria-labelledby="result-title">
+        <h2 id="result-title">Результат</h2>
+        <div class="password-box">
+          <output id="password" aria-live="polite">Пароль появится здесь</output>
+        </div>
+        <button id="copy" class="button secondary-button" type="button" disabled>Скопировать</button>
+        <p id="copy-message" class="message" aria-live="polite"></p>
+
+        <div class="strength-block">
+          <div class="strength-heading">
+            <span>Оценка надёжности</span>
+            <strong id="strength-text">Нет данных</strong>
+          </div>
+          <div id="strength-meter" class="strength-meter" aria-hidden="true"><span></span></div>
+          <p id="strength-hint" class="strength-hint">Оценка учитывает длину пароля и количество выбранных наборов.</p>
+        </div>
+        <div class="security-note">
+          <strong>Обратите внимание</strong>
+          <p>Не используйте один пароль для разных сервисов. История в этом учебном приложении не заменяет менеджер паролей.</p>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel history-panel" aria-labelledby="history-title">
+      <div class="history-heading">
+        <div>
+          <h2 id="history-title">Последние пароли</h2>
+          <p>Хранятся не более пяти записей.</p>
+        </div>
+        <button id="clear-history" class="button text-button" type="button" disabled>Очистить историю</button>
+      </div>
+      <p id="history-message" class="message" aria-live="polite"></p>
+      <ul id="history-list" class="history-list"></ul>
+      <p id="empty-history" class="empty-history">История пока пуста. Сгенерируйте первый пароль.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">HTML · CSS · JavaScript · Web Crypto API · localStorage</div>
+  </footer>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
