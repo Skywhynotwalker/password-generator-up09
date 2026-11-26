@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "notFound": [],
+  "metrics": {
+    "resources": 4,
+    "transferBytes": 1200,
+    "domContentLoadedMs": 21
+  }
+}
